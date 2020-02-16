@@ -1,0 +1,38 @@
+# Simplified Ansible inventory
+
+# All
+- name: all
+  vars:
+    isall: true
+
+# Ungrouped
+- name: ungrouped
+  vars:
+    isungrouped: true
+
+# Groups
+- name: devel
+  vars:
+    isdevel: true
+
+- name: database
+  vars:
+    isdbserver: true
+
+# Hosts
+- host: caddly.example.com
+  vars:
+    iscaddly: caddly
+
+- host: marina.example.com
+  tags: [devel, mysql]
+
+- host: street.example.com
+  tags: [database, mysql]
+
+- host: winner.example.com
+  tags: [database, pgsql]
+  vars:
+    iswinner: winner
+    user: theuser
+    pass: thepass
